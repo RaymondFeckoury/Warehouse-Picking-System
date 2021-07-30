@@ -42,6 +42,8 @@ public class Operations {
 	    addRow();
 	} else if (selection == 2) {
 	    removeRow();
+	} else if (selection == 3) {
+	    addLocation();
 	}
     }
 
@@ -70,6 +72,10 @@ public class Operations {
 	Row.remove(index);
 	System.out.println("Row was removed successfully.");
 	modifyContents();
+    }
+
+    public static void addLocation() {
+	
     }
 
     public static void displayContents() {
