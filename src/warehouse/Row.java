@@ -1,17 +1,33 @@
 package warehouse;
 
+import java.util.ArrayList;
+import java.lang.IndexOutOfBoundsException;
+
 public class Row {
 
     // Stores each row ID in the warehouse
-    public static char[] rows = new char[1];
+    private static ArrayList<Character> rows = new ArrayList<Character>();
 
-    public static Boolean addRow(char id) {
-	for (int i = 0; i < rows.length; i++) {
-	    if (rows[i] == id) {
-		return false;
-	    }
+    public static Boolean add(char id) {
+	if (rows.contains(id)) {
+	    return false;
 	}
-	rows[rows.length - 1] = id;
-	return true;
+	return rows.add(id);
+    }
+
+    public static void remove(int index) {
+	try {
+	    rows.remove(index);
+	} catch (IndexOutOfBoundsException ioobe) {
+	    System.out.println("Error: invalid number was entered.");
+	}
+    }
+
+    public static int getSize() {
+	return rows.size();
+    }
+
+    public static char get(int index) {
+	return rows.get(index);
     }
 }
