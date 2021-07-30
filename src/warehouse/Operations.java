@@ -39,18 +39,18 @@ public class Operations {
 	// Gathers user input and redirects accordingly
 	int selection = input.nextInt();
 	if (selection == 1) {
-	    addRow();
+	    addRowUI();
 	} else if (selection == 2) {
-	    removeRow();
+	    removeRowUI();
 	} else if (selection == 3) {
-	    addLocation();
+	    addLocationUI();
 	}
     }
 
-    public static void addRow() {
+    public static void addRowUI() {
 	System.out.println("Enter Row ID: ");
 	char id = input.next().charAt(0);
-	if (Row.add(id)) {
+	if (Row.addRow(id)) {
 	    System.out.println("New Row Successfully Created");
 	    modifyContents();
 	} else {
@@ -59,7 +59,7 @@ public class Operations {
 	} 	
     }
 
-    public static void removeRow() {
+    public static void removeRowUI() {
 	if (Row.getSize() == 0) {
 	    System.out.println("No rows currently exist.");
 	    modifyContents();
@@ -74,10 +74,13 @@ public class Operations {
 	modifyContents();
     }
 
-    public static void addLocation() {
+    public static void addLocationUI() {
 	
     }
 
+    public static void removeLocationUI() {
+	
+    }
     public static void displayContents() {
 	System.out.println("Not yet implemented");
     }
