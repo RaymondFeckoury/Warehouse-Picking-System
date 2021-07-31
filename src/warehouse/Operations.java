@@ -66,7 +66,7 @@ public class Operations {
 	}
 	System.out.println("Choose the row you would like to remove:");
 	for (int i = 0; i < Row.getSize(); i++) {
-	    System.out.println("Press " + (i + 1) + " to remove: " + Row.get(i));
+	    System.out.println("Press " + (i + 1) + " to remove: " + Row.getId(i));
 	}
 	int index = input.nextInt() - 1;
 	Row.remove(index);
@@ -75,12 +75,38 @@ public class Operations {
     }
 
     public static void addLocationUI() {
-	
+	System.out.println("Choose the row in which you would like to add the location.");
+	for (int i = 0; i < Row.getSize(); i++) {
+	    System.out.println("Press " + (i + 1) + " to add a location to: " + Row.getId(i));
+	}
+	int rowIndex = input.nextInt() - 1;
+	// Variables to be sent as parameters to the location constructor
+	int locId;
+	String locName;
+	double locPrice;
+	int locQuantity;
+	// Gathers location information from the user
+	System.out.println("Please enter the following location information:");
+	System.out.println("ID: ");
+	locId = input.nextInt();
+	// So that scanner doesn't read "/n" as input for the item name
+	String throwAway = input.nextLine();
+	System.out.println("Name: ");
+	locName = input.nextLine();
+	System.out.println("Price: ");
+	locPrice = input.nextDouble();
+	System.out.println("Initial Quantity: ");
+	locQuantity = input.nextInt();
+	// Creates the location object using the information above and adds it to the row
+	Location newLocation = new Location(locId, locName, locPrice, locQuantity);
+	Row.getRow(rowIndex).addLocation(newLocation, rowIndex);
+	modifyContents();
     }
 
     public static void removeLocationUI() {
 	
     }
+    
     public static void displayContents() {
 	System.out.println("Not yet implemented");
     }

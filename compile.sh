@@ -1,4 +1,3 @@
-#!/bin/sh
 javac -d bin -cp bin src/warehouse/Location.java
 javac -d bin -cp bin src/warehouse/Row.java
 javac -d bin -cp bin src/warehouse/Operations.java

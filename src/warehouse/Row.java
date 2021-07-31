@@ -11,7 +11,7 @@ public class Row {
     // Stores each row as an object
     private static ArrayList<Row> rowObject = new ArrayList<Row>();
     private char id; // Each row object has its own unique ID
-    // Each row object has its own array list containing location information
+    // Each row object has its own array list containing location objects
     private ArrayList<Location> locations = new ArrayList<Location>();
     
     public static Boolean addRow(char id) {
@@ -42,10 +42,17 @@ public class Row {
 	return rowID.size();
     }
 
-    public static char get(int index) {
+    public static char getId(int index) {
 	return rowID.get(index);
     }
 
+    public static Row getRow(int index) {
+	return rowObject.get(index);
+    }
     
+    public static void addLocation(Location locationObj, int rowIndex) {
+	Row addTo = rowObject.get(rowIndex);
+	addTo.locations.add(locationObj);
+    }
     
 }
