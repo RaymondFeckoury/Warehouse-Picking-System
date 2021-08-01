@@ -12,7 +12,7 @@ public class Row {
     private static ArrayList<Row> rowObject = new ArrayList<Row>();
     private char id; // Each row object has its own unique ID
     // Each row object has its own array list containing location objects
-    private ArrayList<Location> locations = new ArrayList<Location>();
+    public ArrayList<Location> locations = new ArrayList<Location>();
     
     public static Boolean addRow(char id) {
 	if (rowID.contains(id)) {
@@ -24,7 +24,7 @@ public class Row {
 	rowObject.add(newRow);
 	return true;
     }
-
+    
     public static void setId(char id) {
 	id = id;
     }
@@ -36,6 +36,12 @@ public class Row {
 	} catch (IndexOutOfBoundsException ioobe) {
 	    System.out.println("Error: invalid number was entered.");
 	}
+    }
+
+    public static void removeLocation(int locationIndex, int rowIndex) {
+	Row removeFrom = rowObject.get(rowIndex);
+	removeFrom.locations.remove(locationIndex);
+	System.out.println("Location was removed successfully.");
     }
 
     public static int getSize() {
@@ -53,6 +59,7 @@ public class Row {
     public static void addLocation(Location locationObj, int rowIndex) {
 	Row addTo = rowObject.get(rowIndex);
 	addTo.locations.add(locationObj);
+	System.out.println("New location added successfully.");
     }
     
 }

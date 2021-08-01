@@ -16,19 +16,11 @@ public class Location {
 
     public String locationDetails() {
 	String locationContents = "";
-	/*locationContents.concat("Name: " + name + "/n");
-	locationContents.concat("Price: " + price + "/n");
-	locationContents.concat("Initial Quantity: " + initialQuantity + "/n");
-	locationContents.concat("ID#: " + id);*/
-	locationContents = locationContents + "Name: " + name + "/n";
-	locationContents = locationContents + "Price: " + price + "/n";
-	locationContents = locationContents + "Initial Quantity: " + initialQuantity + "/n";
-	locationContents = locationContents + "ID#: " + id;
-	System.out.println(locationContents);
-	System.out.println("??");
+	locationContents = locationContents + "ID: " + id + ", ";
+	locationContents = locationContents + "Name: " + name + ", ";
+	locationContents = locationContents + "Price: " + price + ", ";
+	locationContents = locationContents + "Initial Quantity: " + initialQuantity + ", ";
 	return locationContents;
     }
-
-    
     
 }

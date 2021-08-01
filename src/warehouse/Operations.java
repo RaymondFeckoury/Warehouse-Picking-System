@@ -44,6 +44,10 @@ public class Operations {
 	    removeRowUI();
 	} else if (selection == 3) {
 	    addLocationUI();
+	} else if (selection == 4) {
+	    removeLocationUI();
+	} else if (selection == 5) {
+	    mainMenu();
 	}
     }
 
@@ -76,7 +80,7 @@ public class Operations {
 
     public static void addLocationUI() {
 	System.out.println("Choose the row in which you would like to add the location.");
-	for (int i = 0; i < Row.getSize(); i++) {
+	 for (int i = 0; i < Row.getSize(); i++) {
 	    System.out.println("Press " + (i + 1) + " to add a location to: " + Row.getId(i));
 	}
 	int rowIndex = input.nextInt() - 1;
@@ -104,7 +108,20 @@ public class Operations {
     }
 
     public static void removeLocationUI() {
-	
+	System.out.println("Which row would you like to remove a location from?");
+	for (int i = 0; i < Row.getSize(); i++) {
+	    System.out.println("Press " + (i + 1) + " to remove a location from: " + Row.getId(i));
+	}
+	int rowIndex = input.nextInt() - 1;
+	Row localCopy = Row.getRow(rowIndex);
+	System.out.println("Locations in row " + Row.getId(rowIndex) + ":");
+	for (int i = 0; i < localCopy.locations.size(); i++) {
+	    System.out.println("Press " + (i + 1) + " to remove:");
+	    System.out.println(localCopy.locations.get(i).locationDetails());
+	}
+	int locationIndex = input.nextInt() - 1;
+	Row.getRow(rowIndex).removeLocation(locationIndex, rowIndex); 
+	modifyContents();
     }
     
     public static void displayContents() {
