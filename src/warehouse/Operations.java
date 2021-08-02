@@ -125,6 +125,36 @@ public class Operations {
     }
     
     public static void displayContents() {
-	System.out.println("Not yet implemented");
+	System.out.println("Press 1 to see all rows");
+	System.out.println("Press 2 to see rows along with location ID's");
+	System.out.println("Press 3 to see detailed location descriptions");
+	System.out.println("Press 4 to return to main menu");
+	int selection = input.nextInt();
+	if (selection == 1) {
+	    System.out.println("Here are all the rows in your warehouse:");
+	    for (int i = 0; i < Row.getSize(); i++) {
+		System.out.println(Row.getId(i));
+	    }
+	} else if (selection == 2) {
+	    for (int i = 0; i < Row.getSize(); i++) {
+		Row localCopy = Row.getRow(i);
+		System.out.println("Locations in row " + Row.getId(i) + ":");
+		int length = localCopy.locations.size();
+		for (int x = 0; x < length; x++) {
+		    System.out.println(localCopy.locations.get(x).name);
+		}
+	    }
+	} else if (selection == 3) {
+	    for (int i = 0; i < Row.getSize(); i++) {
+		Row localCopy = Row.getRow(i);
+		int length = localCopy.locations.size();
+		for (int x = 0; x < length; x++) {
+		    System.out.println("Containing row: " + Row.getId(i) + ", " + localCopy.locations.get(x).locationDetails());
+		}
+	    }
+	} else if (selection == 4) {
+	    mainMenu();
+	}
+	displayContents();
     }
 }

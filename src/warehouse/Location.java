@@ -2,7 +2,7 @@ package warehouse;
 
 public class Location {
 
-    private String name;
+    public String name;
     private int initialQuantity;
     private double price;
     private int id; 
@@ -19,7 +19,7 @@ public class Location {
 	locationContents = locationContents + "ID: " + id + ", ";
 	locationContents = locationContents + "Name: " + name + ", ";
 	locationContents = locationContents + "Price: " + price + ", ";
-	locationContents = locationContents + "Initial Quantity: " + initialQuantity + ", ";
+	locationContents = locationContents + "Initial Quantity: " + initialQuantity;
 	return locationContents;
     }
     
