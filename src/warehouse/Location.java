@@ -22,5 +22,9 @@ public class Location {
 	locationContents = locationContents + "Initial Quantity: " + initialQuantity;
 	return locationContents;
     }
+
+    public int getId() {
+	return this.id;
+    }
     
 }

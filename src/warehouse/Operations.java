@@ -14,6 +14,7 @@ public class Operations {
 	System.out.println("Press 1) Modify Rows or Locations");
 	System.out.println("Press 2) Display Warehouse Contents");
 	System.out.println("Press 3) Sign off");
+	System.out.println("Press 4) Start Picking");
 	// Gathers user input and redirects accordingly
 	int selection = input.nextInt();
 	if (selection == 1) {
@@ -23,6 +24,9 @@ public class Operations {
 	} else if (selection == 3) {
 	    System.out.println("Thank you for using our services.");
 	    System.exit(0);
+	} else if (selection == 4) {
+	    Assignments.load();
+	    //System.out.println("Not yet implemented.");
 	} else {
 	    System.out.println("Menu item does not exist, please try again.");
 	    mainMenu();
