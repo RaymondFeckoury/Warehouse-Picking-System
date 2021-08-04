@@ -101,12 +101,8 @@ public class Operations {
 	String throwAway = input.nextLine();
 	System.out.println("Name: ");
 	locName = input.nextLine();
-	System.out.println("Price: ");
-	locPrice = input.nextDouble();
-	System.out.println("Initial Quantity: ");
-	locQuantity = input.nextInt();
 	// Creates the location object using the information above and adds it to the row
-	Location newLocation = new Location(locId, locName, locPrice, locQuantity);
+	Location newLocation = new Location(locId, locName);
 	Row.getRow(rowIndex).addLocation(newLocation, rowIndex);
 	modifyContents();
     }
