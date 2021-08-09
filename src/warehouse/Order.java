@@ -9,12 +9,7 @@ public class Order {
 	A, C, B, D, E, G, H, I, K, F, J, L, N, P, O, R, Q
     };
 
-    // This array is assigned to Assignments.slots once elements are sorted
-    public Assignments[] organizedSlots;
-
     public static void setRoute() {
-	// will hold the array which gets assigned to slots
-	organizedSlots = new Assignments[Assignments.slots.length];
 	// Identifies matching rows
 	for (int i = 0; i < Order.rowOrder.length; i++) {
 	    char preferredRow = Order.rowOrder[i];
@@ -28,18 +23,30 @@ public class Order {
 		    }
 		}
 
-		// Puts the assignments in organizedSlots based on location (smallest first) using insertion sort
+		// Puts the assignments in organizedSlots (smallest first, insertion sort)
 		for (int y = 0; y < matchingIndexes.size(); y++) {
 		    int currentLocation = Assignments.slots[matchingIndexes[y]].getLocation();
-		    int nextIndex = y + 1;
-		    while (nextIndex < matchingIndexes.size()) {
-			int nextLocation = Assignments.slots[matchingIndexes[nextIndex]].getLocation();
-			if (currentLocation > nextLocation) {
-
-			} else {
-
+		    // Ensures we don't get an AIOOBE
+		    if (y + 1 < matchingIndexes.size()) {
+			int nextIndex = y + 1;
+			while (nextIndex < matchingIndexes.size()) {
+			    int nextLocation =
+				Assignments.slots[matchingIndexes[nextIndex]].getLocation();
+			    if (currentLocation > nextLocation) {
+				nextIndex++;
+			    } else {
+				
+			    }
 			}
-			nextIndex++;
+		    } else {
+			// If we are at the end of the list, this adds the final element,
+			// which is the last in order, to the organized array
+			Assignments nextInOrder =
+			    new Assignments(preferredRow, currentLocation);
+			/*
+			 * What will the index be?
+			 */
+			//organizedSlots[] = nextInOrder;
 		    }
 		}
 	    }

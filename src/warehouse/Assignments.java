@@ -52,6 +52,7 @@ public class Assignments {
     }
 
     public static void pickingInterface() {
+	//	Order.setRoute();
 	System.out.println("Here are your assignments:");
 	// Prints array to see if this worked
 	for (int i = 0; i < slots.length; i++) {
