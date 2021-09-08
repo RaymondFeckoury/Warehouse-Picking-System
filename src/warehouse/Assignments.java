@@ -25,7 +25,8 @@ public class Assignments {
 	this.row = row;
 	this.location = location;
     }
-    
+
+    // Does the random assignments
     public static void load() {
 	// Generates random number of stops and sizes the array accordingly
 	Assignments.numStops = 12 + generate.nextInt(19);
@@ -41,6 +42,7 @@ public class Assignments {
 	    Row localCopy = Row.getRow(rowIndex);
 	    // Gets the number of locations within the specified row 
 	    newSlot.numLocations = localCopy.locations.size();
+	    // Assigns a random location
 	    int locationIndex = generate.nextInt(newSlot.numLocations);
 	    newSlot.location = localCopy.locations.get(locationIndex).getId();
 	    newSlot = new Assignments(newSlot.row, newSlot.location);
@@ -54,7 +56,7 @@ public class Assignments {
 	System.out.println("Here are your assignments:");
 	// Prints array to see if this worked
 	for (int i = 0; i < slots.length; i++) {
-	    System.out.println("Assignment #" + i + ": " + slots[i].getRow() + ", " + slots[i].getLocation());
+	    System.out.println("Assignment #" + (i + 1) + ": " + slots[i].getRow() + ", " + slots[i].getLocation());
 	}
     }
 

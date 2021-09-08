@@ -60,6 +60,7 @@ public class Order {
 	    Order.organizedSlotsLocation[organizedCounter] = smallestAssignment;
 	    organizedCounter++;
 	}
+	Assignments.slots = Order.organizedSlotsLocation;
     }
 
 }
