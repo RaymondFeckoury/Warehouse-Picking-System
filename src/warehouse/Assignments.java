@@ -5,8 +5,6 @@ import java.util.Random;
 public class Assignments {
 
     public static Random generate = new Random();
-    private static final int maxStops = 30;
-    private static final int minStops = 12;
     public static Assignments[] slots;
     public static int numStops;
 
@@ -52,6 +50,7 @@ public class Assignments {
     }
 
     public static void pickingInterface() {
+	Order.setRoute();
 	System.out.println("Here are your assignments:");
 	// Prints array to see if this worked
 	for (int i = 0; i < slots.length; i++) {

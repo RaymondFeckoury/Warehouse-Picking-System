@@ -26,7 +26,6 @@ public class Operations {
 	    System.exit(0);
 	} else if (selection == 4) {
 	    Assignments.load();
-	    //System.out.println("Not yet implemented.");
 	} else {
 	    System.out.println("Menu item does not exist, please try again.");
 	    mainMenu();
