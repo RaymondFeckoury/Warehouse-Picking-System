@@ -10,6 +10,7 @@ public class Order {
 	'F', 'J', 'L', 'M', 'N', 'P', 'O', 'R', 'Q'
     };
 
+<<<<<<< HEAD
     // This array is assigned to Assignments.slots once elements are sorted
     public static Assignments[] organizedSlotsRow;
     public static Assignments[] organizedSlotsLocation;
@@ -22,6 +23,10 @@ public class Order {
 	Order.organizedSlotsRow = new Assignments[Assignments.slots.length];
 	int organizedIndex = 0;
 	// Loops through the rows in order for comparison 
+=======
+    public static void setRoute() {
+	// Identifies matching rows
+>>>>>>> c50ec6e47845f2f324f0d3fcfc37be17e97d7aea
 	for (int i = 0; i < Order.rowOrder.length; i++) {
 	    char current = Order.rowOrder[i];
 	    // Adds the row to the list if it contains the current row in order
@@ -33,6 +38,7 @@ public class Order {
 	    }
 	}
 
+<<<<<<< HEAD
 	Order.organizedSlotsLocation = new Assignments[Order.organizedSlotsRow.length];
 	int organizedCounter = 0;
 	// Sorts based on location
@@ -55,6 +61,33 @@ public class Order {
 		if (nextIndex + 1 < Order.organizedSlotsRow.length) {
 		    nextIndex++;
 		    nextAssignment = Order.organizedSlotsRow[nextIndex];
+=======
+		// Puts the assignments in organizedSlots (smallest first, insertion sort)
+		for (int y = 0; y < matchingIndexes.size(); y++) {
+		    int currentLocation = Assignments.slots[matchingIndexes[y]].getLocation();
+		    // Ensures we don't get an AIOOBE
+		    if (y + 1 < matchingIndexes.size()) {
+			int nextIndex = y + 1;
+			while (nextIndex < matchingIndexes.size()) {
+			    int nextLocation =
+				Assignments.slots[matchingIndexes[nextIndex]].getLocation();
+			    if (currentLocation > nextLocation) {
+				nextIndex++;
+			    } else {
+				
+			    }
+			}
+		    } else {
+			// If we are at the end of the list, this adds the final element,
+			// which is the last in order, to the organized array
+			Assignments nextInOrder =
+			    new Assignments(preferredRow, currentLocation);
+			/*
+			 * What will the index be?
+			 */
+			//organizedSlots[] = nextInOrder;
+		    }
+>>>>>>> c50ec6e47845f2f324f0d3fcfc37be17e97d7aea
 		}
 	    }
 	    Order.organizedSlotsLocation[organizedCounter] = smallestAssignment;

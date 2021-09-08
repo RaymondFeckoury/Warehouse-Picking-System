@@ -5,8 +5,11 @@ import java.lang.IndexOutOfBoundsException;
 
 public class Row {
 
+<<<<<<< HEAD
     // I hope this is temporary, stores all ID's for checking purposes
     public static ArrayList<Character> rowID = new ArrayList<Character>();
+=======
+>>>>>>> c50ec6e47845f2f324f0d3fcfc37be17e97d7aea
     
     // Stores each row as an object
     private static ArrayList<Row> rowObject = new ArrayList<Row>();
